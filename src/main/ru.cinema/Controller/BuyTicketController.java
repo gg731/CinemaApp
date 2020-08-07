@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.Account;
-import Model.Place;
 import Persistence.CinemaDB;
 
 import javax.servlet.ServletException;

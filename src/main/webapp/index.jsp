@@ -20,6 +20,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script>
+        setTimeout(function () {
+            location.reload();
+        }, 15000);
+
         $(document).ready(function createTable() {
             $.ajax({
                 type: 'POST',
