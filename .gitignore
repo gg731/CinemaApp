@@ -1,4 +1,4 @@
 # Project exclude paths
 /target/
-/.idea
-/.gitignore
+.idea
+.gitignore
