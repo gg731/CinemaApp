@@ -19,7 +19,7 @@
             crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
         setTimeout(function () {
             location.reload();
         }, 15000);
