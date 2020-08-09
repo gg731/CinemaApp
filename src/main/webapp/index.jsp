@@ -20,6 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script type="text/javascript">
+
         setTimeout(function () {
             location.reload();
         }, 15000);
@@ -34,7 +35,8 @@
 
                 for (var i = 0; i < places.length; i++) {
                     if (places[i].free == 1) {
-                        $('#' + places[i].x).after(' <td style="font-size: 1.2rem; color: whitesmoke; background: lightcoral" >' +
+                        $('#' + places[i].x).after(' <td style="font-size: 1.2rem;' +
+                            ' color: whitesmoke; background: lightcoral" >' +
                             ' Место занято ' + places[i].username + '</td>');
                     } else {
                         $('#' + places[i].x).after(' <td><input type="radio" name="place" ' +
@@ -51,7 +53,6 @@
     <title>Cinema</title>
 </head>
 <body>
-
 
 <div class="container">
     <form action="buy" method="get">

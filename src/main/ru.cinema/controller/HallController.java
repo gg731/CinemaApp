@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import Persistence.CinemaDB;
+import persistence.CinemaDB;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -14,13 +14,14 @@ import java.io.IOException;
 public class HallController extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 
-
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         String json = new Gson().toJson(CinemaDB.getInstance().getHall());
 

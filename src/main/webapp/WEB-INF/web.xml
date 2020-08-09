@@ -6,7 +6,7 @@
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>buy</servlet-name>
-        <servlet-class>Controller.BuyTicketController</servlet-class>
+        <servlet-class>controller.BuyTicketController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>buy</servlet-name>

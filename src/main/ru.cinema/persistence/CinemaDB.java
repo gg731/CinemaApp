@@ -1,7 +1,7 @@
-package Persistence;
+package persistence;
 
-import Model.Account;
-import Model.Place;
+import model.Account;
+import model.Place;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
@@ -15,8 +15,8 @@ public class CinemaDB implements WorkerDB {
 
     private CinemaDB() {
         bd.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        bd.setUrl("jdbc:mysql://localhost:3306/cinema?useUnicode=true&" +
-                "useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        bd.setUrl("jdbc:mysql://localhost:3306/cinema?useUnicode=true&useJDBCCompliant"
+                + "TimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         bd.setUsername("root");
         bd.setPassword("root");
         bd.setMaxOpenPreparedStatements(20);
@@ -29,7 +29,6 @@ public class CinemaDB implements WorkerDB {
     public static WorkerDB getInstance() {
         return Lazy.INST;
     }
-
 
     @Override
     public List<Place> getHall() {
@@ -57,7 +56,8 @@ public class CinemaDB implements WorkerDB {
     @Override
     public void busyByTicketId(int id, String username) {
         try (Connection cn = bd.getConnection();
-             PreparedStatement ps = cn.prepareStatement("UPDATE hall SET free = 1, username=? where id =? ")) {
+             PreparedStatement ps =
+                     cn.prepareStatement("UPDATE hall SET free = 1, username=? where id =? ")) {
             ps.setString(1, username);
             ps.setInt(2, id);
             ps.execute();
@@ -69,8 +69,9 @@ public class CinemaDB implements WorkerDB {
     @Override
     public Account addAccount(Account account) {
         try (Connection cn = bd.getConnection();
-             PreparedStatement ps = cn.prepareStatement("INSERT INTO account(name,phone,place_id) values (?,?,?)",
-                     PreparedStatement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement ps =
+                     cn.prepareStatement("INSERT INTO account(name,phone,place_id) values (?,?,?)",
+                             PreparedStatement.RETURN_GENERATED_KEYS)) {
 
             ps.setString(1, account.getName());
             ps.setInt(2, account.getPhone());

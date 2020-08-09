@@ -1,10 +1,10 @@
-package Model;
+package model;
 
 public class Account {
     private int id;
     private String name;
     private int phone;
-    private int place_id;
+    private int placeId;
 
     public Account() {
     }
@@ -12,14 +12,14 @@ public class Account {
     public Account(String name, int phone, int place_id) {
         this.name = name;
         this.phone = phone;
-        this.place_id = place_id;
+        this.placeId = place_id;
     }
 
     public Account(int id, String name, int phone, int place_id) {
         this.id = id;
         this.name = name;
         this.phone = phone;
-        this.place_id = place_id;
+        this.placeId = place_id;
     }
 
     public int getId() {
@@ -47,10 +47,10 @@ public class Account {
     }
 
     public int getPlace_id() {
-        return place_id;
+        return placeId;
     }
 
     public void setPlace_id(int place_id) {
-        this.place_id = place_id;
+        this.placeId = place_id;
     }
 }

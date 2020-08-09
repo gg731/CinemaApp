@@ -1,7 +1,7 @@
-package Persistence;
+package persistence;
 
-import Model.Account;
-import Model.Place;
+import model.Account;
+import model.Place;
 
 import java.util.*;
 

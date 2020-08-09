@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Model.Account;
-import Persistence.CinemaDB;
+import model.Account;
+import persistence.CinemaDB;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 public class BuyTicketController extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
+
         String[] paramArr = req.getParameter("place").split(" ");
 
         req.getSession().setAttribute("ticketId", paramArr[0]);
@@ -24,7 +25,9 @@ public class BuyTicketController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
         String username = req.getParameter("username");
         int phone = Integer.valueOf(req.getParameter("phone"));
         int ticketId = Integer.valueOf((String) req.getSession().getAttribute("ticketId"));
