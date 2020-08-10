@@ -3,11 +3,11 @@ install: mvn install
 
 sudo: false
 
-jdk: openjdk14
+jdk:
+  openjdk14
 
-services: mysql
-
-after_success: bash <(curl -s https://codecov.io/bash)
+after_success:
+  bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email:
