@@ -4,11 +4,13 @@ import model.Account;
 import persistence.CinemaDB;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet("/buy")
 public class BuyTicketController extends HttpServlet {
 
     @Override
@@ -17,9 +19,11 @@ public class BuyTicketController extends HttpServlet {
 
         String[] paramArr = req.getParameter("place").split(" ");
 
-        req.getSession().setAttribute("ticketId", paramArr[0]);
-        req.getSession().setAttribute("x", paramArr[1]);
-        req.getSession().setAttribute("y", paramArr[2]);
+        var session = req.getSession();
+
+        session.setAttribute("ticketId", paramArr[0]);
+        session.setAttribute("x", paramArr[1]);
+        session.setAttribute("y", paramArr[2]);
 
         req.getRequestDispatcher("buy.jsp").forward(req, resp);
     }

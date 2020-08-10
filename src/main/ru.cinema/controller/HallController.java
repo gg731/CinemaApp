@@ -29,4 +29,6 @@ public class HallController extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(json);
     }
+
 }
+
