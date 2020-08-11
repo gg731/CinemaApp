@@ -35,14 +35,12 @@ public class BuyTicketController extends HttpServlet {
         String username = req.getParameter("username");
         int phone = Integer.valueOf(req.getParameter("phone"));
         int ticketId = Integer.valueOf((String) req.getSession().getAttribute("ticketId"));
+        Account account = new Account(0, username, phone, ticketId);
 
-        if (CinemaDB.getInstance().getAccByName(username) != null) {
+        if (CinemaDB.getInstance().addAccount(account) == null) {
             req.setAttribute("usernameErr", "Username уже занят.");
             req.getRequestDispatcher("buy.jsp").forward(req, resp);
         } else {
-            Account account = CinemaDB.getInstance().addAccount(
-                    new Account(username, phone, ticketId));
-
             CinemaDB.getInstance().busyByTicketId(
                     ticketId, account.getName());
 

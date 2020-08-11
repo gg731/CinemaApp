@@ -83,30 +83,7 @@ public class CinemaDB implements WorkerDB {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return account;
-    }
-
-    @Override
-    public Account getAccByName(String name) {
-        Account account = null;
-
-        try (Connection cn = bd.getConnection();
-             PreparedStatement ps = cn.prepareStatement("SELECT * FROM account where name  = ? ")) {
-
-            ps.setString(1, name);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                account = new Account(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getInt("phone"),
-                        rs.getInt("place_id")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            account = null;
         }
         return account;
     }
